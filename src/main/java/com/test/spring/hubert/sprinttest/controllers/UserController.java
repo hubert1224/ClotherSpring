@@ -5,6 +5,7 @@ import com.test.spring.hubert.sprinttest.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +32,8 @@ public class UserController
     @RequestMapping(method = RequestMethod.POST,path="/api/register")
     public User save(@RequestBody User saved)
     {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(11);
+        saved.setPassword(encoder.encode(saved.getPassword()));
         return dao.save(saved);
     }
 
@@ -42,8 +45,8 @@ public class UserController
     }
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.POST, path = "/user")
-    public Principal user(@RequestBody  Principal user)
+    @RequestMapping(path = "/api/login")
+    public User user(@RequestBody User user)
     {
         return user;
     }
