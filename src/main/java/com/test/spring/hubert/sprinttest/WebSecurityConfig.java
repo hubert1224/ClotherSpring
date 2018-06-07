@@ -53,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //    }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().and().authorizeRequests()
+        http.httpBasic().and().logout().and().authorizeRequests()
                 .antMatchers( "/api/register","/h2-console/**").permitAll().anyRequest().authenticated()
                 .and().cors().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class);
