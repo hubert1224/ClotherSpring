@@ -2,3 +2,4 @@ INSERT INTO user (login,password,enabled) VALUES ('test','$2a$11$K2efKbxFZDW8vMP
 INSERT INTO clothing_category (category_name,owner_id) VALUES ('Koszule',1)
 INSERT INTO clothing_category (category_name,owner_id) VALUES ('T-shirty',1)
 INSERT INTO clothing_category (category_name,owner_id) VALUES ('Jeansy',1)
+INSERT INTO poclothing (name,purchase_date,worn_time_hours,category_id,state,owner_id) VALUES ('Bytom Polo Zielone',TO_DATE('20/07/2015','dd/mm/yyyy'),'50',1,'Delikatnie Zużyte',1)

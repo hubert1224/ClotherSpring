@@ -30,8 +30,7 @@ public class POClothing
     @OneToOne
     private ClothingCategory category;
 
-    @OneToOne
-    private ClothingState state;
+    private String state;
 
     @ManyToOne
     private User owner;

@@ -48,7 +48,7 @@ public class UserController
     @RequestMapping(path = "/api/login")
     public User user(@RequestBody User user)
     {
-        return user;
+        return dao.findByLogin(user.getLogin());
     }
 
     @ExceptionHandler(value = { DataIntegrityViolationException.class })
